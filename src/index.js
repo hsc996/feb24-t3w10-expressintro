@@ -14,6 +14,18 @@ app.get("/", (request, response) => {
     })
 });
 
+app.post("/", (request, response) => {
+    response.json({
+        message: "POST request received"
+    });
+});
+
+
+const {router} = require("./controllers/pokemonController.js");
+// localhost:3000/pokemon/
+app.use("/pokemon", router);
+
+
 app.listen(PORT, () => {
     console.log(`Server listening on localhost:${PORT}`);
 });
